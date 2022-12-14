@@ -89,9 +89,9 @@ allowing the user to do unsafe things if they want to.
 Voxu is designed to be a low-level language, and it is not intended to be used as a high-level language.
 It is intended to follow a memory ownership model similar to [Rust's].
 
-It is worth noting that Voxu is not a garbage collected language, and it is not intended to be one.
-It is interesint to note as well that as seen in other languages, abstractions of stack and heap
-memory are implemented in Voxu.
+It is worth noting that Voxu is not a garbage collected language, and it is not intended to be one. It is
+cool to note as well that as seen in other languages, abstractions of stack and heap memory are implemented
+in Voxu.
 
 [rust's]: https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html
 
