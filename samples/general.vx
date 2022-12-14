@@ -1,4 +1,4 @@
-struct Person =
+data Person =
   name: string,
   age: uint8,
 
@@ -16,7 +16,7 @@ impl Greet[Language] for Person =
   let greet (&self, language: Language) string =
       language.greeting |> fmt!("{}, {person.name}!")
 
-impl new Registry for Person =
+impl Person =
   let with_name (&self, new: string): Person =
     clone!(self, name: $new)
 
