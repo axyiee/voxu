@@ -325,13 +325,13 @@ Enumerations are a way to define a type that can be one of a set of variants. Th
 
 ```rust
 enum Option[T] =
-    case Some (value: T)
-    case None
+    | Some (value: T)
+    | None
 
 enum Hello (message: String)
-    case Error: "An error occurred"
-    case Success: "Success"
-    case Other(message_: String): message_
+    | Error: "An error occurred"
+    | Success: "Success"
+    | Other(message_: String): message_
 ```
 
 Voxu code _pascal case_ as the conventional naming style for enumerations. So, we can say a regular expression
@@ -339,8 +339,6 @@ for enumeration definitions could be represented as:
 
 ```regex
 enum [A-Z][a-z0-9_]_ (\[([a-Z\_]a-z0-9_]_)?,?)\])? \(([a-Z\_]a-z0-9_]_ (: [a-Z\_]a-z0-9_]_)?,?)_\)? \{
-case [A-Z][a-z0-9_]_(: [A-Z]a-z0-9_]_;)_
-case [A-Z][a-z0-9_]_: [a-Z\_]a-z0-9_]_;
-case [A-Z]a-z0-9_]_(\([a-Z\_]a-z0-9_]_: [A-Z]a-z0-9_]_\))?: [a-Z\_]a-z0-9_]\_;
+case [a-Z\_]a-z0-9_]_ \(?(([a-Z\_]a-z0-9_]_ (: [a-Z\_]a-z0-9_]_)?,?)_\)?\)?;? (: [expression]*)?
 \}
 ```

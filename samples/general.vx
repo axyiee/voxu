@@ -1,0 +1,30 @@
+struct Person =
+  name: string,
+  age: uint8,
+
+enum Language (greeting: string) =
+  | Portuguese: "Olá"
+  | English: "Hello"
+
+/**
+ * Greets an entity of in the [A] criteria.
+ */
+trait Greet[A] =
+  let greet (&self, criteria: A) string
+
+impl Greet[Language] for Person =
+  let greet (&self, language: Language) string =
+      language.greeting |> fmt!("{}, {person.name}!")
+
+impl new Registry for Person =
+  let with_name (&self, new: string): Person =
+    clone!(self, name: $new)
+
+// top-level functions also work
+let can_drink (&Person person) string =
+  match person.age {
+  | case 0   => "wtf no"
+  | if < 18  => "nah"
+  | if >= 18 => "yep"
+  }
+
