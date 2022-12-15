@@ -93,6 +93,33 @@ It is worth noting that Voxu is not a garbage collected language, and it is not 
 cool to note as well that as seen in other languages, abstractions of stack and heap memory are implemented
 in Voxu.
 
+All variables, functions, modules, types, and traits have their value calculated at compile-time. This means
+that code is meant to be safe and efficient, while avoiding using the _heap_ stack as much as possible, also
+meaning that most of time time, items aren't going to be dynamically allocated, unless there are explicit
+instructions to do so.
+
+The stack is a memory region that is used to store static data — data which their length is known at
+compile-time.
+
+The heap is a memory region that is used to store dynamic data — data which their length is not known at
+compile-time. — all values in Voxu are allocated to the stack by default, the only exceptions being that
+one explained. An example for dynamic data are mutable lists (lists that can be modified at runtime) and
+mutable strings.
+
+The concept of ownership is pretty simple and straightforward. It is a concept that is used to define
+the scope of a variable, and it is used to determine when a variable is no longer needed and can be
+freed, and are based in a few simple rules:
+
+- Every value in Voxu has a variable as its owner.
+- There can only be one owner at a time.
+- When the owner goes out of scope and there's no borrows alive, the value will be dropped.
+- The value can be moved from one owner to another.
+- The value can be borrowed from one owner to another without transferring ownership.
+- The value can be borrowed mutably (while allowing mutable access) from one owner to another without
+  transferring ownership.
+- The previous owner cannot be used after the value has been moved.
+- Another mutable borrow cannot be taken while there's a mutable borrow of it alive.
+
 [rust's]: https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html
 
 **Sources**:
@@ -142,27 +169,47 @@ Voxu is mostly a expression-oriented language, which means that most of the time
 writing expressions instead of statements. This is a very important feature of the language, as it allows
 the programmer to write code that is more concise and readable.
 
-Statements are used to define variables, functions, components, etc. In other words, a statement is
-everything that doesn't produce a value to the returned value.
+A statement is a unit of code that performs an an action, which doesn't produce an value directly. You can
+think of it as an instruction to the compiler. The most common statements in Voxu are:
 
-An expression is everything that produces a value to the returned value. This includes function calls,
-variable access, arithmetic operations, and so on. An expression can easily be assigned as a code block
-wrapped in curly braces, in case you need to write a statement before returning a value, or simply a
-direct value. For example:
+- `[expression]`**`;`**
+- Let (variable or function definition) statement
+- Macro invocations
+
+An expression statement ignores the value produced by the expression. To differ expressions from expression
+statements, the expression statement is terminated by a semicolon (`;`).
+
+Expressions are units of code that produce a value. The most common expressions in Voxu are:
+
+- Literals
+- Function and macro invocations
+- Variable or field access
+- Array and tuple indexing
+- Binary and unary operators
+- Parenthesized expressions
+- Anonymous functions
+- If-else expressions
+
+An expression can be wrapped in parentheses to increase readability and isolate its context,
+or be wrapped in curly braces to create a block expression, which can receive statements before
+the expression itself.
 
 ```rust
-let x = 5; // expression
+let x = 5; // statement, 5 is an expression
 let y = { // expanded expression
     let z = 10; // this is a statement
-    hello(); // this is also a statement because it isn't being returned
-    z + 5
+    hello(); // also a statement
+    z + x // result expression
 };
+return 2; // also an expression because produces a value
 ```
 
-A statement may be considered a expression when the return type is `()` (unit), which can also be a
-definition of an empty tuple.
+A statement may be considered a expression when the return type of the scope is `()` (unit),
+which can also be a definition of an empty tuple.
 
 #### Variables
+
+A variable is a component used to store data in memory, either on the _stack_ or on the _heap_.
 
 Variables are used to store data in memory, essentially in the stack, they are a way to give a
 name to a memory location. They are defined using the `let` keyword, and they are immutable by
