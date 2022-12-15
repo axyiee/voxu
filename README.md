@@ -49,7 +49,7 @@ allocate as little memory as possible — just the amount of memory needed to st
 and free it as soon it isn't necessary anymore.
 
 This of course includes a memory model, which is a set of rules that define how memory is
-allocated and freed, and how it is accessed.
+allocated, freed, and accessed.
 
 First of all, it is important to understand how memory management works in software, and how
 it instructs the computer to allocate and free memory.
@@ -102,7 +102,7 @@ The stack is a memory region that is used to store static data — data which th
 compile-time.
 
 The heap is a memory region that is used to store dynamic data — data which their length is not known at
-compile-time. — all values in Voxu are allocated to the stack by default, the only exceptions being that
+compile-time — all values in Voxu are allocated to the stack by default, the only exceptions being that
 one explained. An example for dynamic data are mutable lists (lists that can be modified at runtime) and
 mutable strings.
 
