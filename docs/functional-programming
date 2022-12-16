@@ -1,0 +1,11 @@
+## Functional programming
+
+Voxu is a functional programming language. This means it is designed to follow that specific programming
+paradigm, which is a programming style that treats computation as the evaluation of mathematical functions
+and avoids changing-state and mutable data. It is a declarative programming paradigm, which means programming
+is done with expressions or declarations instead of statements. This doesn't mean Voxu wouldn't partially
+support imperative programming. It'd be implemented ad-hoc, not being the focus of the language.
+
+This also means that the language is designed to support the most common functional programming concepts,
+built-in into the language, such as curried functions, higher-order functions, and lazy evaluation.
+
