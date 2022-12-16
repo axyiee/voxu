@@ -24,10 +24,10 @@ advice anyone can give me, as I love to learn new concepts and listen to feedbac
 
 ## 📖 Table of Contents
 
-- [🐏 Memory efficiency](/blob/trunk/docs/memory-efficiency.md)
-- [💪 Strong and static typing](/blob/trunk/docs/strong-and-static-typing.md)
-- [🌍 Functional programming](/blob/trunk/docs/functional-programming.md)
-- [🏁 Standard library](/blob/trunk/docs/standard-library.md)
-- [♟️ Macros](/blob/trunk/docs/macros.md)
-- [⚙️ The compiler](/blob/trunk/docs/the-compiler.md)
-- [🎏 Syntax and semantics](/blob/trunk/docs/syntax-and-semantics.md)
+- [🐏 Memory efficiency](/concepts/memory-efficiency.md)
+- [💪 Strong and static typing](/concepts/strong-and-static-typing.md)
+- [🌍 Functional programming](/concepts/functional-programming.md)
+- [🏁 Standard library](/concepts/standard-library.md)
+- [♟️ Macros](/concepts/macros.md)
+- [⚙️ The compiler](/concepts/the-compiler.md)
+- [🎏 Syntax and semantics](/concepts/syntax-and-semantics.md)
