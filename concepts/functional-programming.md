@@ -138,13 +138,9 @@ following axioms:
   Identities must have a property that for every **f: a → b**, **iᵦ ∘ f = f = f ∘ iₐ** must be true, which
   means an indentity must be _neutral_ to compositions.
 
-<figure>
-    <img src="https://nikgrozev.com/images/blog/Functional%20Programming%20and%20Category%20Theory%20Part%201%20-%20Categories%20and%20Functors/category.jpg" alt="Illustration of a category">
-    <figcaption>
-        A category of 4 objects. For every object there must be an identity arrow (i.e. loop). The order of 
-        composition should not matter.
-    </figcaption>
-</figure>
+| ![Illustration of a category](https://nikgrozev.com/images/blog/Functional%20Programming%20and%20Category%20Theory%20Part%201%20-%20Categories%20and%20Functors/category.jpg) |
+| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|                     _A category of 4 objects. For every object there must be an identity arrow (i.e. loop). The order of composition should not matter._                      |
 
 In Object Oriented Programming (OOP), a class hierarchy also forms a category. The objects are the possible types
 — for example, classes, traits, interfaces, enumerations, etc. —. We consider two types **A** and **B** to be
@@ -152,12 +148,9 @@ connected with an arrow if **A** is a subtype of **B**. The composition of two a
 because if **A** is a subtype of **B**, and **B** of **C**, then **A** is a subtype of **C**. The identity arrow
 is the identity relation, because every type is a subtype of itself.
 
-<figure>
-    <img src="https://nikgrozev.com/images/blog/Functional%20Programming%20and%20Category%20Theory%20Part%201%20-%20Categories%20and%20Functors/category_oop.jpg" alt="Illustration of categories in OOP">
-    <figcaption>
-        Category theory in Object Oriented Programming.
-    </figcaption>
-</figure>
+| ![Illustration of categories in OOP](https://nikgrozev.com/images/blog/Functional%20Programming%20and%20Category%20Theory%20Part%201%20-%20Categories%20and%20Functors/category_oop.jpg) |
+| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|                                                                    _Category theory in Object Oriented Programming._                                                                     |
 
 In category theory, a functor is a transformation between two categories **A** and **B** that preserves the
 structure of the categories (i.e. identity arrows and composition). We could represent a functor as **F: A → B**,
