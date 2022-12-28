@@ -95,16 +95,14 @@ match list with
 ```
 
 ```rust
-struct ::
+enum List[+A] =
+    | Cons(head: A, tail: List[A])
+    | Nil
 
-struct ::Params[A] (A, List[a])
+priv type Params = (A, List[A])
 
-impl[A] Pattern[List[A]] for :: =
-    type Parameters = ::Param[A]
-    let _match(value: List[A]) ::Params[A] =
-        match value with
-            | case Cons(head, tail) => ::Params(head, tail)
-            | case Nil => ::Params(Nil, Nil)
+pattern[A] :: (&self, params: Params) for Cons[A] =
+    (self.head, self.tail)
 
 // match list with
 //     | case :: head tail => fmt::println!(head)
@@ -235,7 +233,7 @@ would be to use a Monad similar to the `Option` monad, but instead of returning 
 return a `Left` with the error message. This is called the `Either` monad. As the name suggests, an `Either` type
 can be either a `Left` or a `Right` of type `A` or `B` respectively. Let's see an example in Scala:
 
-```
+```scala
 sealed trait Either[+A, +B]
 
 case class Left[+A](value: A) extends Either[A, Nothing]

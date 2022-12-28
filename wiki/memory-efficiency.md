@@ -62,6 +62,9 @@ compile-time — all values in Voxu are allocated to the stack by default, the o
 one explained. An example for dynamic data are mutable lists (lists that can be modified at runtime) and
 mutable strings.
 
+The heap is also used data which lifetime is controlled outside of the scope of the function, such as
+objects that are created in the heap and are referenced by a pointer.
+
 The concept of ownership is pretty simple and straightforward. It is a concept that is used to define
 the scope of a variable, and it is used to determine when a variable is no longer needed and can be
 freed, and are based in a few simple rules:
